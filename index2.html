@@ -1,54 +1,79 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angeline & Venz Wedding Invitation</title>
+  <title>Venz & Angelime Wedding Invitation</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #3b4d3b; /* Midnight green shade */
+      --secondary: #91a3b0; /* Cadet gray */
+      --bg-light: #f6f7f4;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f6f7f4 url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png');
+      background: var(--bg-light) url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png');
       background-attachment: fixed;
-      color: #2f3e2f;
+      color: var(--primary);
       overflow-x: hidden;
     }
+
     header {
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 60px 20px 30px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url('https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-7755592bf3c5c6daab35c3c2da04dfca-V.jpg') center/cover no-repeat;
+      color: white;
+      position: relative;
     }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
-      color: #556b2f;
       margin-bottom: 10px;
       animation: fadeIn 2s ease;
     }
+
     header p {
       font-size: 1.2em;
-      color: #4a594a;
       margin: 5px 0 30px;
     }
+
     #countdown {
-      font-size: 2.3em;
-      color: #3b4d3b;
+      font-size: 2em;
       font-weight: 500;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 30px;
+      display: inline-block;
       animation: fadeIn 2.5s ease;
     }
+
     section {
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
+
     section h2 {
       font-family: 'Playfair Display', serif;
-      color: #556b2f;
+      color: var(--primary);
       font-size: 2em;
       margin-bottom: 20px;
       animation: fadeUp 1.5s ease;
     }
+
     .carousel {
       position: relative;
       width: 100%;
@@ -59,29 +84,34 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       animation: fadeUp 2s ease;
     }
+
     .carousel img {
       width: 100%;
       height: auto;
       display: none;
       transition: opacity 1s ease;
     }
+
     .carousel img.active {
       display: block;
     }
+
     iframe {
       border-radius: 12px;
-      margin-top: 40px;
+      margin-top: 20px;
     }
+
     .venue, .rsvp, .qr-section {
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       padding: 30px;
       margin-top: 30px;
       animation: fadeUp 1.5s ease;
     }
+
     .rsvp button {
-      background-color: #556b2f;
+      background-color: var(--primary);
       color: white;
       border: none;
       padding: 12px 24px;
@@ -90,26 +120,52 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .rsvp button:hover {
-      background-color: #6b8f3e;
+      background-color: var(--secondary);
     }
+
     canvas {
       display: block;
       margin: 0 auto;
     }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #555;
+      background: var(--bg-light);
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      #countdown {
+        font-size: 1.3em;
+      }
+      section h2 {
+        font-size: 1.5em;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Angeline & Venz</h1>
+    <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/Picsart_25-11-10_21-40-24-199.png" alt="AV Wedding Logo" class="logo">
+    <h1>Venz & Angeline</h1>
     <p>Join us in celebrating our love on October 8, 2026</p>
     <div id="countdown"></div>
   </header>
@@ -117,9 +173,9 @@
   <section>
     <h2>Our Journey Together</h2>
     <div class="carousel">
-      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup photo 1" class="active">
-      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-7755592bf3c5c6daab35c3c2da04dfca-V.jpg" alt="Angeline and Venz prenup photo 2">
-      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup photo 3">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup 1" class="active">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-7755592bf3c5c6daab35c3c2da04dfca-V.jpg" alt="Angeline and Venz prenup 2">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup 3">
     </div>
   </section>
 
@@ -135,16 +191,16 @@
     <button onclick="window.open('https://forms.gle/Kj8ZmU2qKsgrr1qJ8', '_blank')">Open RSVP Form</button>
   </section>
 
-  <section class="qr-section">
-    <h2>Share Our Invitation</h2>
-    <p>Scan the QR code below to view this invitation:</p>
-    <canvas id="qrcode"></canvas>
-  </section>
+  <
 
   <section>
     <h2>Celebrate With Us</h2>
     <iframe src="https://open.spotify.com/embed/playlist/2duVXEmRIkhDMTe09u7RQC?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </section>
+
+  <footer>
+    <p>Made with 💚 by Venz & Angeline — October 8, 2026</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script>
@@ -180,9 +236,9 @@
     // QR Code
     const canvas = document.getElementById('qrcode');
     QRCode.toCanvas(canvas, window.location.href, {
-      width: 150,
+      width: 160,
       color: {
-        dark: '#556b2f',
+        dark: '#3b4d3b',
         light: '#f6f7f4'
       }
     });
