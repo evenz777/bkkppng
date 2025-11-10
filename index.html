@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angeline & Venz Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f6f7f4 url('https://www.transparenttextures.com/patterns/green-dust-and-scratches.png');
+      background-attachment: fixed;
+      color: #2f3e2f;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #556b2f;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #4a594a;
+      margin: 5px 0 30px;
+    }
+    #countdown {
+      font-size: 2.3em;
+      color: #3b4d3b;
+      font-weight: 500;
+      animation: fadeIn 2.5s ease;
+    }
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #556b2f;
+      font-size: 2em;
+      margin-bottom: 20px;
+      animation: fadeUp 1.5s ease;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      animation: fadeUp 2s ease;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      display: none;
+      transition: opacity 1s ease;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    iframe {
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    .venue, .rsvp, .qr-section {
+      background: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-top: 30px;
+      animation: fadeUp 1.5s ease;
+    }
+    .rsvp button {
+      background-color: #556b2f;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .rsvp button:hover {
+      background-color: #6b8f3e;
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Angeline & Venz</h1>
+    <p>Join us in celebrating our love on October 8, 2026</p>
+    <div id="countdown"></div>
+  </header>
+
+  <section>
+    <h2>Our Journey Together</h2>
+    <div class="carousel">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup photo 1" class="active">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-7755592bf3c5c6daab35c3c2da04dfca-V.jpg" alt="Angeline and Venz prenup photo 2">
+      <img src="https://raw.githubusercontent.com/evenz777/AVWED/main/IMG-60da575303fba741e45a5d1386037b43-V.jpg" alt="Angeline and Venz prenup photo 3">
+    </div>
+  </section>
+
+  <section class="venue">
+    <h2>Our Venue</h2>
+    <p><strong>Le Don's Garden</strong></p>
+    <iframe src="https://www.google.com/maps?q=Le+Don's+Garden&output=embed" width="100%" height="300" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <section class="rsvp">
+    <h2>Will You Celebrate With Us?</h2>
+    <p>We’d love to know if you can join our special day. Please click below to RSVP.</p>
+    <button onclick="window.open('https://forms.gle/Kj8ZmU2qKsgrr1qJ8', '_blank')">Open RSVP Form</button>
+  </section>
+
+  <section class="qr-section">
+    <h2>Share Our Invitation</h2>
+    <p>Scan the QR code below to view this invitation:</p>
+    <canvas id="qrcode"></canvas>
+  </section>
+
+  <section>
+    <h2>Celebrate With Us</h2>
+    <iframe src="https://open.spotify.com/embed/playlist/2duVXEmRIkhDMTe09u7RQC?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script>
+    // Countdown Timer
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date('October 8, 2026 00:00:00').getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.textContent = 'We are married!';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Carousel
+    const images = document.querySelectorAll('.carousel img');
+    let index = 0;
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 4000);
+
+    // QR Code
+    const canvas = document.getElementById('qrcode');
+    QRCode.toCanvas(canvas, window.location.href, {
+      width: 150,
+      color: {
+        dark: '#556b2f',
+        light: '#f6f7f4'
+      }
+    });
+  </script>
+</body>
+</html>
